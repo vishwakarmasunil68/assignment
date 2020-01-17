@@ -1,0 +1,39 @@
+<!--
+  Generated template for the CountrySelectPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <span text-color="title_white">Select University</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item no-lines no-padding>
+    <ion-input no-lines type="text" placeholder="Search" (input)='onSearchInput($event.target.value)' class="input_back"></ion-input>
+    <!--    <ion-input placeholder="Search" (input)='onSearchInput($event.target.value)'></ion-input>-->
+  </ion-item>
+<!--  <ion-content no-padding >-->
+    <ion-list no-padding>
+      <ion-item no-padding *ngFor="let university of universityPOJOS;let i = index">
+        <ion-grid>
+          <ion-row (click)="passdata(university);">
+            <!--          <ion-col col-3>-->
+            <!--            <img width="50px" height="50px" src="{{device.objectDetail.icon}}" />-->
+            <!--          </ion-col>-->
+
+            <ion-col col-9>
+              <h2 style="color: #1e90ff;">{{university.name}}</h2>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+<!--  </ion-content>-->
+</ion-content>

@@ -1,0 +1,23 @@
+page-assignment-list {
+  .input_back {
+    font-size: 18px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .ion_input {
+    border-bottom: none;
+    box-shadow: none;
+  }
+
+  .verified_order {
+  }
+
+  .not_verified_order {
+    background-color: #fef0f0;
+    width: 100%;
+    height: 100%;
+    padding: 0px !important;
+  }
+}

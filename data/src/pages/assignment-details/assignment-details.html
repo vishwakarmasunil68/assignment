@@ -1,0 +1,161 @@
+<!--
+  Generated template for the AssignmentDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar hideBackButton color="homebar">
+    <ion-buttons left style="display: flex;">
+      <button (click)="openMenu()" style="background: transparent;">
+        <img src="assets/imgs/ic_ham.png" style="width: 25px;"/>
+      </button>
+<!--      <button (click)="openMenu()" style="background: transparent;">-->
+<!--        <img src="assets/imgs/ic_m_logo.png" style="width: 25px;"/>-->
+<!--      </button>-->
+      <button (click)="openMenu()" style="background: transparent;">
+        <p style="font-weight: 900;font-size: 17px;color: #FFFFFF;font-family: white_medium;">{{subject}}</p>
+      </button>
+      <button style="background: transparent;">
+        <ionic3-star-rating #rating
+                            activeIcon = "ios-star"
+                            defaultIcon = "ios-star-outline"
+                            activeColor = "#fc8d3a"
+                            defaultColor = "#a4a6ab"
+                            readonly="false"
+                            rating="{{rating_count}}"
+                            fontSize = "25px"
+                            (ratingChanged)="logRatingChange($event)">
+        </ionic3-star-rating>
+      </button>
+
+
+
+    </ion-buttons>
+
+    <!--    <ion-title text-center>HOME</ion-title>-->
+
+    <ion-buttons right style="margin-right: 10px;" (click)="presentSheet()">
+      <button style="background: transparent;">
+        <img src="assets/imgs/ic_nav_vertical.png" style="height: 20px;"/>
+      </button>
+    </ion-buttons>
+
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div style="background-color: #eef4fe;">
+    <ion-row *ngIf="view_details" no-padding>
+      <ion-col no-padding col-5
+               style="display:block;text-align: center;align-items: center;justify-content: center;padding: 15px;">
+        <p class="pclass" style="font-family: white_medium;margin-top: 7px !important;color: #2e4d82;">Word Count</p>
+        <p class="pclass" style="font-family: white_medium;">{{words_count}}</p>
+      </ion-col>
+      <ion-col no-padding col-2 style="display: flex;text-align: center;justify-content: center;align-items: center;">
+        <div style="position: relative;height: 100%;width:1px;border-left: 1px solid #424242;"></div>
+      </ion-col>
+      <ion-col no-padding col-5
+               style="display:block;text-align: center;align-items: center;justify-content: center;padding: 15px;">
+        <p class="pclass" style="font-family: white_medium;margin-top: 7px !important;color: #2e4d82;">Total/Paid
+          Amount</p>
+        <p class="pclass" style="font-family: white_medium;">{{partial_amount}}/{{cceamount}} AUD</p>
+      </ion-col>
+    </ion-row>
+    <div *ngIf="view_details" style="border-bottom: 1px solid #424242;"></div>
+    <ion-row *ngIf="view_details" no-padding>
+      <ion-col no-padding col-5
+               style="display:block;text-align: center;align-items: center;justify-content: center;padding: 15px;">
+        <p class="pclass" style="font-family: white_medium;margin-top: 7px !important;color: #2e4d82;">
+          Subject/University</p>
+        <p class="pclass" style="font-family: white_medium;">{{subject}}</p>
+      </ion-col>
+      <ion-col no-padding col-2 style="display: flex;text-align: center;justify-content: center;align-items: center;">
+        <div style="position: relative;height: 100%;width:1px;border-left: 1px solid #424242;"></div>
+      </ion-col>
+      <ion-col no-padding col-5
+               style="display:block;text-align: center;align-items: center;justify-content: center;padding: 15px;">
+        <p class="pclass" style="font-family: white_medium;margin-top: 7px !important;color: #2e4d82;">Deadline</p>
+        <p class="pclass" style="font-family: white_medium;">{{deadline}}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-list id="listcontent">
+    <ion-item no-padding no-lines *ngFor="let item of assignmentCommentList; let i = index">
+      <ion-row *ngIf="item.is_other_user" style="padding-left: 10px;">
+        <!--      <ion-col col-1 style="margin: 0px !important;padding: 0px !important;position: relative !important;">-->
+        <!--        <div style="position: absolute;top: 10px;">-->
+        <!--          <img src="assets/imgs/default_pic.png" style="width: 30px;height:30px;"/>-->
+        <!--        </div>-->
+        <!--      </ion-col>-->
+        <ion-col col-8 no-padding>
+          <ion-card
+            style="padding-left: 10px;padding-right:10px;padding-top: 10px;padding-bottom: 30px;background-color: #f1f1f1;border-radius: 5px;">
+            <p style="font-weight: bold;font-family: white_medium;color: #333333;"><i>{{item.username}}</i></p>
+<!--            <p text-wrap style="margin-top: 7px;font-family: white_medium;color: #333333;">{{item.notes}}</p>-->
+<!--            <p text-wrap style="margin-top: 7px;font-family: white_medium;color: #333333;">{{item.notes}}</p>-->
+            <div text-wrap [innerHtml]="item.notes" (click)="checkUrl(i)"></div>
+            <div (click)="openInChrome(item.attachment_url)"  *ngIf="item.is_attachment" style="margin-top: 10px;margin-bottom: 10px;display: flex;align-items: center;">
+              <img src="assets/imgs/ic_file_attach.png" style="width: 50px;">
+              <p>{{item.actual_file_name}}</p>
+            </div>
+            <div style="margin-top: 10px;margin-bottom: 7px;position: relative;">
+              <div style="position: absolute;right: 10px;">
+                <p style="font-size: 12px;font-family: white_medium;color: #333333;"><i>{{item.date}}</i></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="item.is_user">
+        <ion-col col-3></ion-col>
+        <ion-col col-9 no-padding>
+          <ion-card style="padding-left: 10px;padding-right:10px;padding-top: 10px;padding-bottom: 30px;border-radius: 5px;">
+            <p style="font-weight: bold;font-family: white_medium;"><i>you</i></p>
+            <div text-wrap [innerHtml]="item.notes"></div>
+            <div *ngIf="item.is_attachment" (click)="openInChrome(item.attachment_url)" style="margin-top: 10px;margin-bottom: 10px;display: flex;align-items: center;">
+              <img src="assets/imgs/ic_file_attach.png" style="width: 50px;">
+              <p>{{item.actual_file_name}}</p>
+            </div>
+<!--            <p style="margin-top: 7px;font-family: white_medium;">{{item.notes}}</p>-->
+            <div style="margin-top: 10px;margin-bottom: 7px;position: relative;">
+              <div style="position: absolute;right: 10px;">
+                <p style="font-size: 12px;font-family: white_medium;"><i>{{item.date}}</i></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+        <!--      <ion-col col-1 style="margin: 0px !important;padding: 0px !important;position: relative !important;">-->
+        <!--        <div style="position: absolute;top: 10px;">-->
+        <!--          <img src="assets/imgs/default_pic.png" style="width: 30px;height:30px;"/>-->
+        <!--        </div>-->
+        <!--      </ion-col>-->
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab bottom right="" style="position: absolute; margin-bottom: 15px;margin-right: 7px;">
+    <button color="light" ion-fab (click)="newAssignment()" style="width: 55px !important;height: 55px !important;background-image: linear-gradient(90deg, #3e6098, #31a7a6);">
+      <ion-icon text-color="title_white" name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>
+<ion-footer style="min-height: 60px;">
+  <div style="border-top: 1px solid #e9e9e9;"></div>
+  <div style="height: 60px;display: flex;text-align: center;justify-content: center;align-items: center;">
+    <img (click)="chooseFile()" src="assets/imgs/ic_attachment_icon.png" style="margin-left: 10px;margin-right: 10px;height: 25px;"/>
+    <input [(ngModel)]="ip_order_comment" type="text" placeholder="Enter your comment"
+           style="border: 1px solid #424242;border-radius: 7px;height:35px; width: 100%;padding-left: 5px;padding-right: 5px;"/>
+    <img (click)="sendComment()" src="assets/imgs/ic_send.png" style="height: 25px;margin-left: 10px;margin-right: 10px;"/>
+    <!--    <p style="font-weight: 600;">Send</p>-->
+  </div>
+
+</ion-footer>

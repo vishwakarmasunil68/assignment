@@ -1,0 +1,72 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <span text-color="title_white">Login MPIN</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="height: 100%;display: block;text-align: center;align-items: center;justify-content: center;">
+    <ion-item no-lines style="display:flex;justify-content: center;align-items: center;text-align: center;">
+      <!--      <ion-img src="assets/imgs/logo.png" [width]="100" [height]="100"></ion-img>-->
+      <img src="assets/imgs/logo.png" style="width: 170px;height: 170px;">
+      <!--    <p style="font-size: 16px;margin-top: 20px;margin-bottom: 20px;font-family: white_medium;">- continue with -</p>-->
+    </ion-item>
+
+    <ion-row>
+      <ion-col col-4>
+        <ion-item text-center no-padding text-wrap no-lines (click)="openSelectCountryPage()" style="padding-top: 30px;">
+            <p style="font-size: 13px;color: #000000;">{{selectedCountryName}}</p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-8>
+        <ion-item  no-padding>
+          <ion-label floating>Mobile *</ion-label>
+          <ion-input type="phone" [(ngModel)]="mobile" value=""></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-item style="margin-top: 15px;">
+      <ion-label floating>Mpin *</ion-label>
+      <ion-input type="password" [(ngModel)]="mpin" value=""></ion-input>
+    </ion-item>
+
+    <ion-item (click)="forgotPassword()" no-lines style="text-align: right;margin-top: 10px;">
+      <p style="font-family: white_medium;">Forgot MPIN?</p>
+    </ion-item>
+    <ion-item no-lines
+              style="width: 100%;display: flex;text-align: center;justify-content: center;align-items: center;margin-top: 20px;">
+      <div (click)="callLoginAPI()"
+           style="display: flex;text-align: center;justify-content: center;align-items: center;">
+        <div
+          style="background-image: linear-gradient(90deg, #3e6098, #31a7a6);width: 80%;display: flex;text-align: center;justify-content: center;align-items: center;border-radius: 20px;height: 40px;">
+          <p style="font-size: 15px;font-weight: bolder;font-family: white_medium;color: #FFFFFF;">Log In</p>
+        </div>
+      </div>
+    </ion-item>
+
+    <!--    -->
+    <!--    <ion-item no-lines style="width: 100%;margin-top: 50px;display: flex;text-align: center;justify-content: center;align-items: center;">-->
+    <!--      &lt;!&ndash;    <button (click)="openHomePage()" style="padding-left: 80px;padding-right: 80px;padding-top: 10px;padding-bottom: 10px;border-radius: 7px;&ndash;&gt;-->
+    <!--      &lt;!&ndash;    font-size: 20px;color: #FFFFFF;background-color: #43bda0;font-weight: 900;width: 100%;margin-top: 15px;height: 45px;font-family: white_medium;">Log in&ndash;&gt;-->
+    <!--      &lt;!&ndash;    </button>&ndash;&gt;-->
+    <!--      <div (click)="callLoginAPI()" style="display: flex;text-align: center;justify-content: center;align-items: center;">-->
+    <!--        <div style="width: 60%;border: 1px solid #BDBDBD;display: flex;text-align: center;justify-content: center;align-items: center;border-radius: 5px;height: 40px;">-->
+    <!--          <p style="font-size: 15px;font-weight: bolder;font-family: white_medium;">Log in</p>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </ion-item>-->
+
+
+  </div>
+
+</ion-content>

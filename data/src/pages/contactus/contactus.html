@@ -1,0 +1,49 @@
+<!--
+  Generated template for the ContactusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton color="homebar">
+    <ion-buttons left style="display: flex;">
+      <button (click)="openMenu()" style="background: transparent;">
+        <img src="assets/imgs/ic_ham.png" style="width: 25px;"/>
+      </button>
+      <button (click)="openMenu()" style="background: transparent;">
+        <img src="assets/imgs/ic_m_logo.png" style="width: 25px;"/>
+      </button>
+      <button (click)="openMenu()" style="background: transparent;">
+        <p style="font-weight: 900;font-size: 17px;color: #FFFFFF;font-family: white_medium;">Contact Us</p>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div>
+    <div style="position: relative;text-align: center;justify-content: center;align-items: center;">
+      <img src="assets/imgs/ic_contact_us_1.png" style="width: 100px;margin-top: 50px;" />
+    </div>
+    <ion-item>
+      <ion-label floating>Message</ion-label>
+      <ion-textarea type="text" rows="5" maxLength="500" [(ngModel)]="message"></ion-textarea>
+    </ion-item>
+    <ion-item no-lines style="display: flex;text-align: center;justify-content: center;margin-top: 25px;">
+      <div (click)="submit()" style="display: flex;text-align: center;justify-content: center;align-items: center;">
+        <div style="background-image: linear-gradient(90deg, #3e6098, #31a7a6);width: 80%;display: flex;text-align: center;justify-content: center;align-items: center;border-radius: 20px;height: 40px;">
+          <p style="font-size: 15px;font-weight: bolder;font-family: white_medium;color: #FFFFFF;">Submit</p>
+        </div>
+      </div>
+    </ion-item>
+  </div>
+
+
+  <ion-fab bottom right="" style="position: absolute; margin-bottom: 15px;margin-right: 7px;">
+    <button color="light" ion-fab (click)="newAssignment()" style="background-image: linear-gradient(90deg, #3e6098, #31a7a6);width: 55px !important;height: 55px !important;">
+      <ion-icon text-color="title_white" name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

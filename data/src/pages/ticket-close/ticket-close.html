@@ -1,0 +1,75 @@
+<!--
+  Generated template for the TicketClosePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>-->
+<!--  <ion-navbar>-->
+<!--    <ion-title>TicketClose</ion-title>-->
+<!--  </ion-navbar>-->
+<!--</ion-header>-->
+
+<ion-content>
+  <div style="display: flex;text-align: center;justify-content: center;align-items: center;">
+    <p style="color: #11498a;font-size: 20px;">Ticket No : </p>
+    <p style="color: #3cb8a8;margin-left: 5px;font-size: 20px;">{{ticket_no}}</p>
+  </div>
+  <div style="margin-left: 15px;">
+    <p style="font-weight: 900;">Date</p>
+    <p style="margin-top: -7px !important;">{{feedback_date}}</p>
+  </div>
+  <div style="margin-left: 15px;margin-top: 15px;">
+    <p style="font-weight: 900;">Description</p>
+    <p style="margin-top: -7px !important;">{{description}}</p>
+  </div>
+  <div style="margin-left: 15px;margin-top: 15px;">
+    <p style="font-weight: 900;">Do you want to close the ticket?</p>
+    <div style="display: flex;margin-top: -20px;">
+      <div style="display: flex;text-align:center;align-items: center;justify-content: center;"
+           (click)="setYes()">
+        <ion-checkbox color="dark" checked="true" (ionChange)="yesClicked()" [(ngModel)]="check_yes"></ion-checkbox>
+        <p style="margin-left: 7px;font-size: 17px;">Yes</p>
+      </div>
+      <div style="display: flex;text-align:center;align-items: center;justify-content: center;margin-left: 10px;"
+           (click)="setNo()">
+        <ion-checkbox color="dark" (ionChange)="noClicked()" [(ngModel)]="check_no"></ion-checkbox>
+        <p style="margin-left: 7px;font-size: 17px;">No</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer no-padding no-border>
+  <ion-row style="margin-top: 25px;margin-bottom: 10px;">
+    <ion-col col-6>
+      <div style="display: flex;text-align: center;justify-content: center;align-items: center;">
+
+        <div (click)="cancel()" style="width:100%;display: flex;text-align: center;justify-content: center;align-items: center;">
+          <div style="background-image: linear-gradient(90deg, #3e6098, #31a7a6);width: 80%;display: flex;text-align: center;justify-content: center;align-items: center;border-radius: 20px;height: 40px;">
+            <p style="font-size: 15px;font-weight: bolder;font-family: white_medium;color: #FFFFFF;">CLOSE</p>
+          </div>
+        </div>
+
+<!--        <div (click)="cancel();"-->
+<!--          style="width: 80%;border: 1px solid #BDBDBD;display: flex;text-align: center;justify-content: center;align-items: center;border-radius: 5px;height: 37px;">-->
+<!--          <p style="font-size: 15px;font-weight: bolder;font-family: white_medium;">CLOSE</p>-->
+<!--        </div>-->
+      </div>
+    </ion-col>
+    <ion-col col-6>
+      <div style="display: flex;text-align: center;justify-content: center;align-items: center;">
+
+        <div (click)="submit()" style="width:100%;display: flex;text-align: center;justify-content: center;align-items: center;">
+          <div style="background-image: linear-gradient(90deg, #3e6098, #31a7a6);width: 80%;display: flex;text-align: center;justify-content: center;align-items: center;border-radius: 20px;height: 40px;">
+            <p style="font-size: 15px;font-weight: bolder;font-family: white_medium;color: #FFFFFF;">SUBMIT</p>
+          </div>
+        </div>
+
+<!--        <div (click)="submit()"-->
+<!--             style="width: 80%;border: 1px solid #BDBDBD;display: flex;text-align: center;justify-content: center;align-items: center;border-radius: 5px;height: 37px;">-->
+<!--          <p style="font-size: 15px;font-weight: bolder;font-family: white_medium;">SUBMIT</p>-->
+<!--        </div>-->
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-footer>

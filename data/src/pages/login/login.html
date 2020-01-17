@@ -1,0 +1,78 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>-->
+<!--  <ion-navbar>-->
+<!--    <ion-title>Login</ion-title>-->
+<!--  </ion-navbar>-->
+<!--</ion-header>-->
+
+<ion-content padding>
+  <div style="height: 100%;display: block;text-align: center;align-items: center;justify-content: center;">
+    <ion-item no-lines style="display:flex;justify-content: center;align-items: center;text-align: center;margin-top: 50px;">
+<!--      <ion-img src="assets/imgs/logo.png" [width]="100" [height]="100"></ion-img>-->
+      <img src="assets/imgs/logo.png" style="width: 170px;height: 170px;">
+      <!--    <p style="font-size: 16px;margin-top: 20px;margin-bottom: 20px;font-family: white_medium;">- continue with -</p>-->
+    </ion-item>
+<!--    <ion-item>-->
+<!--      <ion-label floating>Email</ion-label>-->
+<!--      -->
+<!--    </ion-item>-->
+<!--    <ion-item>-->
+<!--      <p>Email</p>-->
+<!--      <input type="email" [(ngModel)]="email" value="" style="border-bottom: 1px solid black;">-->
+<!--    </ion-item>-->
+    <ion-item>
+      <p style="color: #000000;font-size: 16px;">Email</p>
+      <input placeholder="" type="text" [(ngModel)]="email"
+             style="width: 100%;padding-left: 10px;padding-right: 10px;border: 1px solid transparent;">
+    </ion-item>
+
+    <ion-item style="margin-top: 15px;">
+      <p style="color: #000000;font-size: 16px;">Password</p>
+      <input placeholder="" type="{{password_type}}" [(ngModel)]="password"
+             style="width: 100%;padding-left: 10px;padding-right: 10px;border: 1px solid transparent;">
+      <button *ngIf="!showPass" ion-button clear color="dark" style="height:30px;margin-top: 20px;" type="button" item-right (click)="showHide()">
+        <ion-icon name="eye" style="font-size:25px;"></ion-icon>
+      </button>
+      <button *ngIf="showPass" ion-button clear color="dark" style="height:30px;margin-top: 20px;" type="button" item-right (click)="showHide()">
+        <ion-icon name="eye-off" style="font-size:25px;"></ion-icon>
+      </button>
+    </ion-item>
+
+<!--    <ion-item style="margin-top: 15px;">-->
+<!--      <ion-label floating>Password</ion-label>-->
+<!--      <input type="{{password_type}}" [(ngModel)]="password" value="">-->
+<!--&lt;!&ndash;      <button ion-button clear item-end (click)='showHide()'>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-icon name="eye" style="font-size:32px;"></ion-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;      </button>&ndash;&gt;-->
+<!--      <button *ngIf="!showPass" ion-button clear color="dark" style="height:30px;margin-top: 20px;" type="button" item-right (click)="showHide()">-->
+<!--        <ion-icon name="eye" style="font-size:25px;"></ion-icon>-->
+<!--      </button>-->
+<!--      <button *ngIf="showPass" ion-button clear color="dark" style="height:30px;margin-top: 20px;" type="button" item-right (click)="showHide()">-->
+<!--        <ion-icon name="eye-off" style="font-size:25px;"></ion-icon>-->
+<!--      </button>-->
+<!--    </ion-item>-->
+    <ion-item (click)="forgotPassword()" no-lines style="text-align: right;margin-top: 10px;">
+      <p style="font-family: white_medium;">Forgot Password?</p>
+    </ion-item>
+    <ion-item no-lines style="width: 100%;display: flex;text-align: center;justify-content: center;align-items: center;margin-top: 20px;">
+      <div (click)="callLoginAPI()" style="display: flex;text-align: center;justify-content: center;align-items: center;">
+        <div style="background-image: linear-gradient(90deg, #3e6098, #31a7a6);width: 80%;display: flex;text-align: center;justify-content: center;align-items: center;border-radius: 20px;height: 40px;">
+          <p style="font-size: 15px;font-weight: bolder;font-family: white_medium;color: #FFFFFF;">Log In</p>
+        </div>
+      </div>
+    </ion-item>
+    <ion-item (click)="openMpinPage()" no-lines style="text-align: center;margin-top: 30px;">
+      <p style="font-family: white_medium;color: #757575;">or Login using MPIN</p>
+    </ion-item>
+  </div>
+
+</ion-content>
+
+<!--<ion-footer text-center no-border transparent>-->
+<!--  -->
+<!--</ion-footer>-->

@@ -1,0 +1,97 @@
+<!--
+  Generated template for the NewAssignmentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="homebar">
+    <ion-buttons left style="display: flex;">
+<!--      <button (click)="openMenu()" style="background: transparent;">-->
+<!--        <img src="assets/imgs/ic_ham.png" style="width: 25px;"/>-->
+<!--      </button>-->
+      <button (click)="openMenu()" style="background: transparent;">
+        <img src="assets/imgs/ic_m_logo.png" style="width: 25px;"/>
+      </button>
+      <button (click)="openMenu()" style="background: transparent;">
+        <p style="font-weight: 900;font-size: 17px;color: #FFFFFF;font-family: white_medium;">Order New Assignment</p>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Deadline Date*</ion-label>
+    <ion-datetime displayFormat="YYYY-MM-DD HH:mm" pickerFormat="YYYY-MM-DD HH:mm"
+                  [(ngModel)]="startDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Word Count *</ion-label>
+    <ion-input type="text" [(ngModel)]="word_count"></ion-input>
+  </ion-item>
+
+  <ion-item style="margin-top: 17px;" (click)="openSelectCountryPage()">
+    <ion-label no-padding>
+      Subject *
+    </ion-label>
+    <ion-label text-center no-padding>
+      {{selectedSubject}}
+    </ion-label>
+  </ion-item>
+
+  <ion-item style="margin-top: 17px;" (click)="openUniversitySelectPage()">
+    <ion-label no-padding>
+      University *
+    </ion-label>
+    <ion-label text-center no-padding>
+      {{selectedUniversity}}
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Comment</ion-label>
+    <ion-input type="text" [(ngModel)]="comment"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="show_attached_file">
+    <div style="display: flex;align-items: center;">
+      <p no-padding style="color: #000000;">
+        Selected File
+      </p>
+      <img src="assets/imgs/ic_file_attach.png" style="width: 50px;height: 50px;margin-left: 15px;"/>
+    </div>
+  </ion-item>
+
+  <div>
+    <ion-item no-lines>
+      <div class="flex_center_content">
+        <button ion-button (click)="chooseFile()">
+          <ion-icon name="attach" style="margin-right: 10px;"></ion-icon>
+          Attach File
+        </button>
+      </div>
+    </ion-item>
+    <div class="flex_center_content">
+      <div class="flex_center_content" style="width: 50%;">
+        <div class="flex_center_content" (click)="close()"
+             style="background-image: linear-gradient(90deg, #3e6098, #31a7a6);border-radius: 20px;height: 40px;">
+          <p class="pclass" style="font-size: 15px;color: #FFFFFF;margin-left: 30px !important;margin-right: 30px !important;">Close</p>
+        </div>
+      </div>
+      <div class="flex_center_content" style="width: 50%;">
+        <div class="flex_center_content" (click)="submitAssignment()"
+          style="background-image: linear-gradient(90deg, #3e6098, #31a7a6);border-radius: 20px;height: 40px;">
+          <p class="pclass" style="font-size: 15px;color: #FFFFFF;margin-left: 30px !important;margin-right: 30px !important;">Submit</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>
+<!--<ion-footer no-lines no-border>-->
+<!--  -->
+<!--</ion-footer>-->

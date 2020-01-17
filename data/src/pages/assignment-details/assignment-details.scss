@@ -1,0 +1,25 @@
+page-assignment-details {
+  .nopaddingclass {
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;;
+    margin-inline-start: 0 !important;;
+    margin-inline-end: 0 !important;;
+  }
+
+  .alertstar{
+    button{
+      width: 40px;
+      margin: 0 !important;
+      background-image:url('../../assets/imgs/ic_star.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      color:white !important;
+    }
+    .alert-button-group{padding:0; margin-top: 10px; flex-direction: row; justify-content: space-around;}
+    border-radius: 12px;
+    .alert-wrapper{border-radius: 12px;}
+  }
+
+
+
+}

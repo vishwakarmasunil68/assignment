@@ -1,0 +1,116 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@import '../theme/fonts';
+
+.pclass {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;;
+  margin-inline-start: 0 !important;;
+  margin-inline-end: 0 !important;;
+}
+
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.back-button-icon-md {
+  color: #FFFFFF;
+}
+
+[text-color="title_white"] {
+  color: white;
+}
+.profile_pic_center {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.center_item {
+  display: flex;
+  align-items: center;
+}
+
+.alertstar{
+  button{
+    width: 40px;
+    margin: 0 !important;
+    background-image:url('../assets/imgs/ic_star.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    color:white !important;
+  }
+  .alert-button-group{padding:0; margin-top: 10px; flex-direction: row; justify-content: space-around;}
+  border-radius: 12px;
+  .alert-wrapper{border-radius: 12px;}
+}
+
+$SIDEMENU_TOP: #3e6199;
+$SIDEMENU_BOTTOM: #31a7a6;
+$SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+
+.toolbar-background-md {
+  background: -webkit-gradient(90deg, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: -o-linear-gradient(90deg, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: -moz-linear-gradient(90deg, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: linear-gradient(90deg, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background-repeat: repeat-x;
+}
+
+.toolbar-background-ios{
+  background: -webkit-gradient(90deg, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: -o-linear-gradient(90deg, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: -moz-linear-gradient(90deg, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: linear-gradient(90deg, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background-repeat: repeat-x;
+}
+
+ion-modal.custom-popup ion-backdrop {
+  visibility: visible !important;
+  z-index:0;
+}
+ion-modal.custom-popup .modal-wrapper{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 35%;
+  height:320px;
+  position:absolute;
+}
+
+ion-modal.rating-custom-popup ion-backdrop {
+  visibility: visible !important;
+  z-index:0;
+}
+ion-modal.rating-custom-popup .modal-wrapper{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 35%;
+  height:350px;
+  position:absolute;
+}
+
+ion-app, ion-nav, ion-tab, ion-tabs, .app-root{
+  -webkit-transition: bottom 0.3s;
+  transition: bottom 0.3s;
+}
+
+

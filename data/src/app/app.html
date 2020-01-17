@@ -1,0 +1,114 @@
+<ion-menu [content]="content">
+  <ion-content>
+    <div (click)="menuClicked('profile')"
+         style="display:block;text-align: center;align-items: center;justify-content: center;padding-top: 20px;">
+      <!-- <ion-avatar item-start> -->
+      <img style="width: 80px;height: 80px;border-radius: 50%;background-color: transparent;" src="{{profile_pic}}">
+      <!-- </ion-avatar> -->
+      <p style="font-weight: 900;font-size: 17px;color: #757575;margin: 15px;font-family: white_medium;">{{username}}</p>
+      <p style="font-weight: 900;font-size: 17px;color: #757575;margin: 15px;font-family: white_medium;">Client id : {{client_id}}</p>
+      <div style="border: 1px solid #EEEEEE;"></div>
+    </div>
+
+
+    <ion-list no-padding>
+
+      <ion-item no-padding no-lines class="item-icon-left" menu-close (click)="assignmentSubMenu()" style="">
+        <ion-grid no-padding>
+          <ion-row no-padding class="center_item">
+            <img style="width: 25px;height: 25px;margin-left: 20px;" src="assets/imgs/ic_assignments.png">
+            <p style="margin-left: 20px;font-size: 15px;color:#757575;font-family: white_medium;">My Assignments</p>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+
+      <div no-padding no-lines *ngIf="submenuVisible" class="item-icon-left" menu-close style="padding-left: 15px;margin-top: -7px;">
+        <ion-item no-padding no-lines style="margin-left: 23px;margin-top: -7px;">
+          <ion-grid no-padding>
+            <ion-row no-padding (click)="menuClicked('assignment_in_process')">
+              <ion-col no-padding class="center_item">
+                <img style="width: 20px;height: 20px;" src="assets/imgs/process.svg">
+                <p style="margin-left: 20px;font-size: 15px;color:#757575;font-family: white_medium;">In Process</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item no-padding no-lines style="margin-left: 23px;margin-top: -7px;">
+          <ion-grid no-padding>
+            <ion-row no-padding (click)="menuClicked('assignment_enquiries')">
+              <ion-col no-padding class="center_item">
+                <img style="width: 20px;height: 20px;" src="assets/imgs/ic_enquiry.svg">
+                <p style="margin-left: 20px;font-size: 15px;color:#757575;font-family: white_medium;">Enquiries</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item no-padding no-lines style="margin-left: 23px;margin-top: -7px;">
+          <ion-grid no-padding>
+            <ion-row no-padding (click)="menuClicked('assignment_delivered')">
+              <ion-col no-padding class="center_item">
+                <img style="width: 20px;height: 20px;" src="assets/imgs/ic_delivered.svg">
+                <p style="margin-left: 20px;font-size: 15px;color:#757575;font-family: white_medium;">Delivered</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item no-padding no-lines style="margin-left: 23px;margin-top: -7px;">
+          <ion-grid no-padding>
+            <ion-row no-padding (click)="menuClicked('assignment_expired')">
+              <ion-col no-padding class="center_item">
+                <img style="width: 20px;height: 20px;" src="assets/imgs/expire.svg">
+                <p style="margin-left: 20px;font-size: 15px;color:#757575;font-family: white_medium;">Expired</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </div>
+
+      <ion-item no-padding no-lines class="item-icon-left" menu-close (click)="menuClicked('new_assignment')" style="margin-top: -7px;">
+        <ion-grid no-padding>
+          <ion-row no-padding class="center_item">
+            <img style="width: 25px;height: 25px;margin-left: 20px;" src="assets/imgs/ic_new_assignments.png">
+            <p style="margin-left: 20px;font-size: 15px;color:#757575;font-family: white_medium;">Order New Assignment</p>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-item no-padding no-lines class="item-icon-left" menu-close (click)="menuClicked('setting')" style="margin-top: -7px;">
+        <ion-grid no-padding>
+          <ion-row no-padding class="center_item">
+            <img style="width: 25px;height: 25px;margin-left: 20px;" src="assets/imgs/ic_setting.png">
+            <p style="margin-left: 20px;font-size: 15px;color:#757575;font-family: white_medium;">Settings</p>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item no-padding no-lines class="item-icon-left" menu-close (click)="menuClicked('contact_us')" style="margin-top: -7px;">
+        <ion-grid no-padding>
+          <ion-row no-padding class="center_item">
+            <img style="width: 25px;height: 25px;margin-left: 20px;" src="assets/imgs/ic_contact_us.png">
+            <p style="margin-left: 20px;font-size: 15px;color:#757575;font-family: white_medium;">Contact us</p>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item no-padding no-lines class="item-icon-left" menu-close (click)="menuClicked('help')" style="margin-top: -7px;">
+        <ion-grid no-padding>
+          <ion-row no-padding class="center_item">
+            <img style="width: 25px;height: 25px;margin-left: 20px;" src="assets/imgs/ic_help.png">
+            <p style="margin-left: 20px;font-size: 15px;color:#757575;font-family: white_medium;">Help</p>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item no-padding no-lines class="item-icon-left" menu-close (click)="menuClicked('logout')" style="margin-top: -7px;">
+        <ion-grid no-padding>
+          <ion-row class="center_item">
+            <img style="width: 25px;height: 25px;margin-left: 20px;" src="assets/imgs/ic_logout.png">
+            <p style="margin-left: 20px;font-size: 15px;color:#757575;font-family: white_medium;">Logout</p>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content></ion-nav>

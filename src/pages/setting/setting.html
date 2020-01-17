@@ -1,0 +1,72 @@
+<!--
+  Generated template for the SettingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="homebar">
+    <ion-buttons left style="display: flex;">
+<!--      <button (click)="openMenu()" style="background: transparent;">-->
+<!--        <img src="assets/imgs/ic_ham.png" style="width: 25px;"/>-->
+<!--      </button>-->
+      <button (click)="openMenu()" style="background: transparent;">
+        <img src="assets/imgs/ic_m_logo.png" style="width: 25px;"/>
+      </button>
+      <button (click)="openMenu()" style="background: transparent;">
+        <p style="font-weight: 900;font-size: 17px;color: #FFFFFF;font-family: white_medium;">Setting</p>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <ion-item no-lines no-padding style="background-color: #f9f9fa;padding-left: 20px;">
+    <p style="font-size: 18px;font-weight: bolder;font-family: white_medium;">General</p>
+  </ion-item>
+  <ion-item no-lines>
+    <ion-label style="margin-left: 20px;color: #757575;font-family: white_medium;">Push Notifications</ion-label>
+    <ion-toggle checked="true" [(ngModel)]="toggle_variable" (ionChange)="updateToggleSet()"></ion-toggle>
+  </ion-item>
+  <hr>
+  <ion-item no-lines (click)="openProfilePage()">
+    <div style="display: flex;align-items: center;padding-left: 0px">
+      <img src="assets/imgs/ic_profile_update.png" style="width: 20px;height: 20px"/>
+      <p style="margin-left: 10px;color: #424242;font-family: white_medium;">Profile Setting</p>
+    </div>
+  </ion-item>
+  <hr>
+  <ion-item no-lines (click)="openChangePassword()">
+    <div style="display: flex;align-items: center;padding-left: 0px">
+      <img src="assets/imgs/ic_change_password.png" style="width: 20px;height: 20px"/>
+      <p style="margin-left: 10px;color: #424242;font-family: white_medium;">Change Password</p>
+    </div>
+  </ion-item>
+
+
+  <ion-item no-lines no-padding style="background-color: #f9f9fa;padding-left: 20px;">
+    <p style="font-size: 18px;font-weight: bolder;font-family: white_medium;">Support</p>
+  </ion-item>
+  <ion-item no-lines (click)="reportProblem()">
+    <div style="display: flex;align-items: center;padding-left: 0px">
+      <img src="assets/imgs/ic_report_problem.png" style="width: 20px;height: 20px"/>
+      <p style="margin-left: 10px;color: #424242;font-family: white_medium;">Report problem</p>
+    </div>
+  </ion-item>
+  <hr>
+  <ion-item no-lines (click)="openPrivayPolicy()">
+    <div style="display: flex;align-items: center;padding-left: 0px">
+      <img src="assets/imgs/ic_privacy_plolicy.png" style="width: 20px;height: 20px"/>
+      <p style="margin-left: 10px;color: #424242;font-family: white_medium;">Privacy Policy</p>
+    </div>
+  </ion-item>
+  <hr>
+
+
+  <ion-fab bottom right="" style="position: absolute; margin-bottom: 15px;margin-right: 7px;">
+    <button color="light" ion-fab (click)="newAssignment()" style="width: 55px !important;height: 55px !important;background-image: linear-gradient(90deg, #3e6098, #31a7a6);">
+      <ion-icon text-color="title_white" text-color="title_white" name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

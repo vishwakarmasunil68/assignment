@@ -1,0 +1,156 @@
+<!--
+  Generated template for the AssignmentListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton color="homebar">
+    <ion-buttons left style="display: flex;">
+      <button (click)="openMenu()" style="background: transparent;">
+        <img src="assets/imgs/ic_ham.png" style="width: 25px;"/>
+      </button>
+      <button (click)="openMenu()" style="background: transparent;">
+        <img src="assets/imgs/ic_m_logo.png" style="width: 25px;"/>
+      </button>
+      <button (click)="openMenu()" style="background: transparent;">
+        <!--        <p style="font-weight: 900;font-size: 17px;color: #FFFFFF;font-family: white_medium;">HOME</p>-->
+        <p style="color: #FFFFFF;font-weight: 900;font-size: 17px;font-family: white_medium;">My Assignments</p>
+      </button>
+
+    </ion-buttons>
+
+    <!--    <ion-title text-center>HOME</ion-title>-->
+
+    <ion-buttons right>
+      <button style="background: transparent;" (click)="getOrderList()">
+        <img src="assets/imgs/ic_refresh.png" style="height: 20px;"/>
+      </button>
+      <button style="background: transparent;" (click)="openNotifications()">
+        <img src="assets/imgs/ic_notification.png" style="height: 20px;"/>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content style="background-color: #FFFFFF;">
+
+  <ion-searchbar type="text" [(ngModel)]="search_input" placeholder="Search" (input)="onSearchInput($event.target)"
+                 class="input_back"></ion-searchbar>
+  <ion-item *ngIf="!assignment_found" text-center no-lines>
+    <button ion-button (click)="newAssignment()">
+      Order Now
+    </button>
+  </ion-item>
+  <div *ngIf="assignment_found">
+    <div *ngFor="let item of orderList; let i = index;" style="margin: 0px !important;padding: 0px !important;width: 100%;">
+      <div *ngIf="!item.is_order_verified">
+        <ion-item-sliding no-padding>
+          <ion-item no-lines (click)="viewAssignment(item.id)" style="background-color: #fef0f0">
+            <div style="height: 100%;">
+              <ion-row>
+                <ion-col col-6>
+                  <div style="display: flex;">
+                    <p style="font-family: white_medium;font-weight: 900;">{{item.order_title}}</p>
+                    <p *ngIf="item.p_status"
+                       style="margin-left: 10px;background-color: #EE5740;padding: 2px;font-size:12px;font-weight: 900;border-radius: 3px;color: #FFFFFF;">
+                      P</p>
+                    <img *ngIf="item.feedback_status" src="assets/imgs/ic_thumb_down.png"
+                         style="margin-left: 10px;width: 20px;height: 20px;">
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-7>
+                  <p style="font-family: white_medium;">{{item.client_deadline_display}}</p>
+                </ion-col>
+                <ion-col col-5>
+                  <div style="display: flex;position: relative;padding-left: 15px;padding-right: 7px;">
+                    <p style="font-family: white_medium;">Word Count : </p>
+                    <p style="font-family: white_medium;">{{item.wordcount}}</p>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </div>
+          </ion-item>
+          <ion-item-options side="right">
+            <button (click)="viewAssignment(item.id)" color="primary" ion-button style="width: 60px;">
+              <ion-icon name="eye"></ion-icon>
+              View
+            </button>
+            <button *ngIf="item.show_payment_slide" color="danger" ion-button style="width: 60px;"
+                    (click)="payAmount(i)">
+              <ion-icon name="cash"></ion-icon>
+              Pay
+            </button>
+            <button color="secondary" ion-button style="width: 60px;" (click)="preVerifyOrder(i)">
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+              Verify
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <hr>
+      </div>
+      <div *ngIf="item.is_order_verified">
+        <ion-item-sliding no-padding>
+          <ion-item no-lines (click)="viewAssignment(item.id)">
+            <!--      <p style="font-size: 18px;font-weight: 900;font-family: white_medium;">{{item.name}}</p>-->
+            <div style="height: 100%;">
+              <ion-row>
+                <ion-col col-6>
+                  <div style="display: flex;">
+                    <p style="font-family: white_medium;font-weight: 900;">{{item.order_title}}</p>
+                    <p *ngIf="item.p_status"
+                       style="margin-left: 10px;background-color: #EE5740;padding: 2px;font-size:12px;font-weight: 900;border-radius: 3px;color: #FFFFFF;">
+                      P</p>
+                    <img *ngIf="item.feedback_status" src="assets/imgs/ic_thumb_down.png"
+                         style="margin-left: 10px;width: 20px;height: 20px;">
+                  </div>
+                </ion-col>
+                <ion-col col-6>
+                  <!--              <div style="position: relative;float: right;padding-right: 7px;">-->
+                  <!--                <p style="font-family: white_medium;">{{item.currency}} {{item.partial_amount}}/{{item.cceamount}}</p>-->
+                  <!--              </div>-->
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-8>
+                  <p style="font-family: white_medium;">{{item.client_deadline_display}}</p>
+                </ion-col>
+                <ion-col col-4>
+                  <!--              <div style="display: flex;position: relative;float: right;padding-right: 7px;">-->
+                  <!--                <p style="font-family: white_medium;">Word Count : </p><p style="font-family: white_medium;">{{item.wordcount}}</p>-->
+                  <!--              </div>-->
+                  <div style="display: flex;position: relative;padding-left: 15px;padding-right: 7px;">
+                    <p style="font-family: white_medium;">Word Count : </p>
+                    <p style="font-family: white_medium;">{{item.wordcount}}</p>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </div>
+          </ion-item>
+          <ion-item-options side="right">
+            <button (click)="viewAssignment(item.id)" color="primary" ion-button style="width: 60px;">
+              <ion-icon name="eye"></ion-icon>
+              View
+            </button>
+            <button *ngIf="item.show_payment_slide" color="danger" ion-button style="width: 60px;"
+                    (click)="payAmount(i)">
+              <ion-icon name="cash"></ion-icon>
+              Pay
+            </button>
+            <button color="secondary" ion-button style="width: 60px;" (click)="preVerifyOrder(i)">
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+              Verify
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,41 @@
+<!--<ion-header>-->
+<!--  <ion-navbar hideBackButton color="homebar">-->
+<!--    <ion-buttons left>-->
+<!--      <button (click)="openMenu()" style="background: transparent;">-->
+<!--        <img src="assets/imgs/ic_ham.png" style="width: 25px;"/>-->
+<!--      </button>-->
+<!--    </ion-buttons>-->
+
+<!--    <ion-title text-center>HOME</ion-title>-->
+
+<!--&lt;!&ndash;    <ion-buttons right>&ndash;&gt;-->
+<!--&lt;!&ndash;      <button style="background: transparent;">&ndash;&gt;-->
+<!--&lt;!&ndash;        <img src="assets/imgs/ic_notification_bell.png" style="width: 25px;"/>&ndash;&gt;-->
+<!--&lt;!&ndash;      </button>&ndash;&gt;-->
+<!--&lt;!&ndash;    </ion-buttons>&ndash;&gt;-->
+
+<!--  </ion-navbar>-->
+
+<!--</ion-header>-->
+
+<!--<ion-content>-->
+<!--  <ion-tabs>-->
+<!--    <ion-tab [root]="tab1Root" tabTitle="Enquiries"></ion-tab>-->
+<!--    <ion-tab [root]="tab2Root" tabTitle="In-process"></ion-tab>-->
+<!--    <ion-tab [root]="tab3Root" tabTitle="Delivered"></ion-tab>-->
+<!--    <ion-tab [root]="tab4Root" tabTitle="Expired"></ion-tab>-->
+<!--  </ion-tabs>-->
+<!--</ion-content>-->
+<ion-content>
+  <ion-tabs #tabs selectedIndex="{{selected_index}}">
+    <ion-tab [root]="tab2Root" [rootParams]="{tab_index: '3'}" tabTitle="In-process" tabIcon="custom-process"></ion-tab>
+    <ion-tab [root]="tab1Root" [rootParams]="{tab_index: '1'}" tabTitle="Enquiries" tabIcon="custom-enquiry"></ion-tab>
+    <ion-tab [root]="tab3Root" [rootParams]="{tab_index: '4'}" tabTitle="Delivered" tabIcon="custom-delivered"></ion-tab>
+    <ion-tab [root]="tab4Root" [rootParams]="{tab_index: '2'}" tabTitle="Expired" tabIcon="custom-expired"></ion-tab>
+  </ion-tabs>
+  <ion-fab bottom center style="position: absolute; margin-bottom: 5px;">
+    <button color="light" ion-fab (click)="newAssignment()" style="width: 55px !important;height: 55px !important;background-image: linear-gradient(90deg, #3e6098, #31a7a6);">
+      <ion-icon text-color="title_white" name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

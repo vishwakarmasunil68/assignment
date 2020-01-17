@@ -1,0 +1,25 @@
+page-home {
+  ion-icon {
+    &[class*="custom-"] {
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 1em;
+      height: 1em;
+    }
+
+    &[class*="custom-enquiry"] {
+      mask-image: url(../../assets/imgs/ic_enquiry.svg);
+    }
+    &[class*="custom-process"] {
+      mask-image: url(../../assets/imgs/process.svg);
+    }
+    &[class*="custom-delivered"] {
+      mask-image: url(../../assets/imgs/ic_delivered.svg);
+    }
+    &[class*="custom-expired"] {
+      mask-image: url(../../assets/imgs/expire.svg);
+    }
+  }
+}
